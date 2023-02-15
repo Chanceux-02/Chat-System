@@ -18,6 +18,8 @@
     height: 300px;
     overflow-y: scroll;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
   }
   
   .message {

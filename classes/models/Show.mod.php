@@ -4,7 +4,7 @@ class Show extends Db{
 
     public function showData() {
         $conn = $this->getConnection();
-        $stmt = $conn->prepare("SELECT * FROM `user`");
+        $stmt = $conn->prepare("SELECT * FROM `user` ORDER BY id DESC ");
         $stmt->execute();
         // $result = $stmt->fetch();
         return $stmt;

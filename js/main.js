@@ -10,7 +10,7 @@ $(document).ready(function() { // making the script ready after the structure lo
             success: function(data) { //if ajax is success then
                 // Update the HTML element with the fetched data
                 $('#result').html(data); //targeting the element where to update the data
-                $('#result').scrollTop($('#result')[0].scrollHeight); //to make the scroll from the bottom or the latest of the chat
+                //$('#result').scrollTop($('#result')[0].scrollHeight); //to make the scroll from the bottom or the latest of the chat
             },
             error: function(jqXHR, textStatus, errorThrown) { // if ajax is not success
                 console.log(textStatus, errorThrown);
