@@ -5,7 +5,7 @@
 <body>
     <div class="login-box">
         <div class=".container form-container">
-            <h1 class="mb-5">Login1</h1>
+            <h1 class="mb-5">Login</h1>
             <p>Make your account <a href="register-form.php">here!</a></p>
             <form action="" method="POST" class="form-control p-5">
                 <div class="textbox">
