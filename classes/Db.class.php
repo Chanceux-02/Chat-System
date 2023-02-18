@@ -4,7 +4,7 @@ class Db {
   private $host = "localhost";
   private $username = "root";
   private $password = "";
-  private $database = "chat";
+  private $database = "chat_system";
   private $conn;
 
   public function getConnection() {

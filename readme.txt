@@ -25,3 +25,6 @@ add some functions
 add security features
 
 test the app
+
+; databse, show kag sa users nga query gin bago (chat-chat_system / user - users)
+; export konalang ang databse

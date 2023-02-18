@@ -1,11 +1,11 @@
 $(document).ready(function() { // making the script ready after the structure load
     // Set the interval for fetching the data in milliseconds
-    var interval = 50; // 50 miliseconds
+    var interval = 500; // 50 miliseconds
 
     // Define the function that fetches the data
     function fetchData() {
         $.ajax({
-            url: '../fetch.php', //the file url
+            url: '../ajax/fetch.php', //the file url
             type: 'GET', // the method
             success: function(data) { //if ajax is success then
                 // Update the HTML element with the fetched data
