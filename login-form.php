@@ -6,8 +6,8 @@
     <div class="login-box">
         <div class=".container form-container">
             <h1 class="mb-5">Login</h1>
-            <p>Make your account <a href="register-form.php">here!</a></p>
-            <form action="" method="POST" class="form-control p-5">
+            <p>Create your account <a href="register-form.php">here!</a></p>
+            <form action="includes/login.inc.php" method="POST" class="form-control p-5">
                 <div class="textbox">
                     <input type="email" placeholder="Email" name="email" class="form-control mb-2">
                 </div>

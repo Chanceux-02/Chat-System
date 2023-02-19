@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include '../classes/Db.class.php';
   include '../classes/models/Show.mod.php';
 

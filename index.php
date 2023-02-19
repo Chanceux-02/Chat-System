@@ -1,6 +1,8 @@
 <?php 
+  session_start();
   include 'classes/Db.class.php';
   include 'classes/models/Show.mod.php';
+  include 'classes/models/User.mod.php';
 
   $db = new Db();
   $conn = $db->getConnection();
@@ -28,17 +30,26 @@
 <body>
 
 <div class="wrapper">
+<?php
+
+if(isset($_SESSION["user_email"])){
+    echo "You are logged in " . $_SESSION["user_email"] . "!";
+}else{
+    echo "logged out";
+}
+
+?>
   <div class="second-wrapper">
       <!-- header -->
     <header class="header">
-        <div class="bg-primary p-2 d-flex justify-content-center">
-            <span class="online"></span><p class="text-center text-light fs-6">Jhon Doe</p>
+        <div class="bg-primary p-2 d-flex justify-content-evenly">
+          <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6">Jhon Doe</p> </div>
+           <a href="includes/logout.inc.php" class="text-light">Log out</a>
         </div>
     </header>
       <!-- messages -->
     <section class="messages" id="result">
         <!-- fetching data -->
-      
     </section>
       <!-- input -->
     <section class="form-container bg-light">
