@@ -39,4 +39,13 @@ class User extends Db{
         }
 
       }
+
+      public function insertChat($chatName, $usersId, $creatorId) {
+        $conn = $this->getConnection();
+        $stmt = $conn->prepare("INSERT INTO groupchat (`chat_name`, `guest_id`, `creator_id`) VALUES (?,?,?);");
+        $stmt->execute([$chatName, $usersId, $creatorId]);
+        // $result = $stmt->fetch();
+        // return $stmt;
+        // print_r($result);
+      }
 }

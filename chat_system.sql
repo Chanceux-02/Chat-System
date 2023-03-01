@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2023 at 06:12 AM
+-- Generation Time: Mar 01, 2023 at 10:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `chat_system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groupchat`
+--
+
+CREATE TABLE `groupchat` (
+  `id` int(11) NOT NULL,
+  `chat_name` varchar(255) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `guest_id` int(11) NOT NULL,
+  `messages` longtext NOT NULL,
+  `time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `groupchat`
+--
+
+INSERT INTO `groupchat` (`id`, `chat_name`, `creator_id`, `guest_id`, `messages`, `time`) VALUES
+(1, 'newchat', 22, 33, 'adsf', '2023-03-01 14:54:02'),
+(2, 'Close-Open-Store-Alyson123', 10, 6, '', '2023-03-01 16:59:42');
 
 -- --------------------------------------------------------
 
@@ -107,6 +130,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `time`) VALUES
 --
 
 --
+-- Indexes for table `groupchat`
+--
+ALTER TABLE `groupchat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -121,6 +150,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `groupchat`
+--
+ALTER TABLE `groupchat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `messages`
