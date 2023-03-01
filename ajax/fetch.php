@@ -10,11 +10,6 @@
   $showData = new Show();
   //this is for all user chat
   $allChat = $showData->showAllChat();
-  //this is for user
-  $data = $showData->showData($user_id);
-  // this is for other user
-  $othersData = $showData->showDataOthers($user_id);
-  //this is for other messages
 
   $messages = "";
 

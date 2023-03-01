@@ -27,9 +27,9 @@ class User extends Db{
         if ($user) {
 
           $user1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-          session_start();    // if successfull ma start ang session
-          $_SESSION["user_email"] = $user[0]["name"];         // dire nag assign sang session name kag gin assign sa variable
-          $_SESSION["user_id"] = $user[0]["id"];         // dire nag assign sang session name kag gin assign sa variable
+          session_start(); // if successfull ma start ang session
+          $_SESSION["user_email"] = $user[0]["name"]; // dire nag assign sang session name kag gin assign sa variable
+          $_SESSION["user_id"] = $user[0]["id"]; // dire nag assign sang session name kag gin assign sa variable
           // $stmt = null;
           // print_r($user);
 

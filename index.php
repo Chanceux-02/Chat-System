@@ -7,12 +7,10 @@
   $db = new Db();
   $conn = $db->getConnection();
 
-  // $showData = new Show();
-  // $data = $showData->showData();
+  $showData = new Show();
+  //this is for all user chat
+  $allUser = $showData->users();
 
-  // print_r($fetch = $data->fetchAll(PDO::FETCH_ASSOC));
-
-  // print_r($conn)
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +43,22 @@ if(isset($_SESSION["user_email"])){
         <div class="bg-primary p-2 d-flex justify-content-evenly">
           <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6"> <?= $_SESSION["user_email"] ?></p> </div>
            <a href="includes/logout.inc.php" class="text-light">Log out</a>
+
+            <form action="includes/createChat.php" method="post">
+              <select name="selectUsers" id="" placeholder="Select">
+                  <option value="">Select</option>
+
+                  <?php
+                  while ($users = $allUser->fetch(PDO::FETCH_ASSOC)) {
+                    $users['name'];
+                    $newUserName = str_replace(" ", "-", $users);
+                    ?>
+                    <option value=<?= $newUserName['name'] ?>><?= $users['name'] ?></option>
+                  <?php } ?>
+
+              </select>
+              <button type="submit" name="submit">create</button>
+            </form>
         </div>
     </header>
       <!-- messages -->
