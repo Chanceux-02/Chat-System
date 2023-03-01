@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $user_id = $_SESSION["user_id"];
   include '../classes/Db.class.php';
   include '../classes/models/Show.mod.php';
 
@@ -7,30 +8,40 @@
   $conn = $db->getConnection();
 
   $showData = new Show();
-  $data = $showData->showData();
+  //this is for all user chat
+  $allChat = $showData->showAllChat();
+  //this is for user
+  $data = $showData->showData($user_id);
+  // this is for other user
+  $othersData = $showData->showDataOthers($user_id);
+  //this is for other messages
 
-    while ($row = $data->fetch(PDO::FETCH_ASSOC)) {
+  $messages = "";
 
-    // echo '<ul>';
-    // echo '<li class="message">'. $row["name"] . '</li>';
-    // echo '<li class="message">'. $row["messages"]. '</li>';
-    // echo '</ul>';
+    while ($other = $allChat->fetch(PDO::FETCH_ASSOC)) {
 
-    echo '<div class="d-flex justify-content-start flex-column">';
-    echo '    <span class="fw-lighter text-dark ps-1">'. $row["name"] . '</span>';
-    echo '    <p class="bg-primary mt-0">'. $row["messages"]. '</p>';
-    echo '</div>';
-    echo '<div class="d-flex justify-content-end">';
-    echo '    <div>';
-    echo '        <span class="fw-lighter text-dark ps-1">'. $row["name"] . '</span>';
-    echo '        <p class="bg-primary ">'. $row["messages"]. '</p>';
-    echo '    </div>';
-    echo '</div>';
 
-    // echo '<div class="d-flex justify-content-start flex-column">';
-    // echo '<span class="fw-lighter text-dark ps-1">'. $row["name"] . '</span>';
-    // echo '<p class="bg-primary mt-0">'. $row["messages"]. '</p>';
-    // echo '</div>';
+          if($other['user_id'] == $user_id){
+              $userMessages = "
+              <div class='d-flex justify-content-end'>
+                <div>
+                  <span class='fw-lighter text-dark ps-1'>". $other['name'] . "</span>
+                  <p class='bg-primary'>". $other['messages']. "</p>
+                </div>
+              </div>
+          ";
+          $messages.= $userMessages;
+          }else{
+              $otherUser = "    
+              <div class='d-flex justify-content-start flex-column'>
+                <span class='fw-lighter text-dark ps-1'>". $other["name"] . "</span>
+                <p class='bg-primary mt-0'>". $other["messages"]. "</p>
+              </div>
+            ";
+            $messages.= $otherUser;
+          }
+  }
 
-    }
+    echo $messages;
+    
 ?>

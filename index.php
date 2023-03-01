@@ -7,8 +7,8 @@
   $db = new Db();
   $conn = $db->getConnection();
 
-  $showData = new Show();
-  $data = $showData->showData();
+  // $showData = new Show();
+  // $data = $showData->showData();
 
   // print_r($fetch = $data->fetchAll(PDO::FETCH_ASSOC));
 
@@ -43,7 +43,7 @@ if(isset($_SESSION["user_email"])){
       <!-- header -->
     <header class="header">
         <div class="bg-primary p-2 d-flex justify-content-evenly">
-          <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6">Jhon Doe</p> </div>
+          <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6"> <?= $_SESSION["user_email"] ?></p> </div>
            <a href="includes/logout.inc.php" class="text-light">Log out</a>
         </div>
     </header>

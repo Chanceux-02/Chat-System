@@ -1,11 +1,12 @@
 <?php
 
+
 class User extends Db{
 
-    public function insert($message) {
+    public function insert($message, $user_id, $user_name) {
         $conn = $this->getConnection();
-        $stmt = $conn->prepare("INSERT INTO messages (`messages`) VALUES (?);");
-        $stmt->execute([$message]);
+        $stmt = $conn->prepare("INSERT INTO messages (`messages`, `user_id`, `name`) VALUES (?,?,?);");
+        $stmt->execute([$message, $user_id, $user_name]);
         // $result = $stmt->fetch();
         // return $stmt;
         // print_r($result);
@@ -28,6 +29,7 @@ class User extends Db{
           $user1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
           session_start();    // if successfull ma start ang session
           $_SESSION["user_email"] = $user[0]["name"];         // dire nag assign sang session name kag gin assign sa variable
+          $_SESSION["user_id"] = $user[0]["id"];         // dire nag assign sang session name kag gin assign sa variable
           // $stmt = null;
           // print_r($user);
 
