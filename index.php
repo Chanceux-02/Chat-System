@@ -10,6 +10,7 @@
   $showData = new Show();
   //this is for all user chat
   $allUser = $showData->users();
+  $allUsers = $showData->users();
 
 ?>
 
@@ -45,16 +46,22 @@ if(isset($_SESSION["user_email"])){
            <a href="includes/logout.inc.php" class="text-light">Log out</a>
 
             <form action="includes/createChat.php" method="post">
+              <?php           
+                $users2 = $allUsers->fetch(PDO::FETCH_ASSOC);
+              ?>
+
+              <input type="hidden" name="addedUserId" id="" value="<?= $users2['id'] ?>">
+              
               <select name="selectUsers" id="" placeholder="Select">
                   <option value="">Select</option>
-
                   <?php
                   while ($users = $allUser->fetch(PDO::FETCH_ASSOC)) {
                     $users['name'];
+
                     $newUserName = str_replace(" ", "-", $users);
-                    ?>
+                    ?> 
                     <option value=<?= $newUserName['name'] ?>><?= $users['name'] ?></option>
-                  <?php } ?>
+                    <?php } ?>
 
               </select>
               <button type="submit" name="submit">create</button>
