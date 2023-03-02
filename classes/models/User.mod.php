@@ -40,10 +40,18 @@ class User extends Db{
 
       }
 
-      public function insertChat($chatName, $usersId, $creatorId) {
+      public function insertChat($chatName, $usersId, $creatorId, $chat_id) {
         $conn = $this->getConnection();
-        $stmt = $conn->prepare("INSERT INTO groupchat (`chat_name`, `guest_id`, `creator_id`) VALUES (?,?,?);");
-        $stmt->execute([$chatName, $usersId, $creatorId]);
+        $stmt = $conn->prepare("INSERT INTO groupchat (`chat_name`, `guest_id`, `creator_id`, `chat_id`) VALUES (?,?,?,?);");
+        $stmt->execute([$chatName, $usersId, $creatorId, $chat_id]);
+        // $result = $stmt->fetch();
+        // return $stmt;
+        // print_r($result);
+      }
+      public function insertDataPairChat($chatName, $user_id, $addUserId, $message) {
+        $conn = $this->getConnection();
+        $stmt = $conn->prepare("INSERT INTO groupchat (`chat_name`,`creator_id`,`guest_id`,`messages`) VALUES (?,?,?,?);");
+        $stmt->execute([$chatName, $user_id, $addUserId, $message]);
         // $result = $stmt->fetch();
         // return $stmt;
         // print_r($result);
