@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2023 at 09:44 AM
+-- Generation Time: Mar 03, 2023 at 03:48 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -124,7 +124,15 @@ INSERT INTO `groupchat` (`id`, `chat_name`, `creator_id`, `creator_name`, `guest
 (79, 'hello world-9-7', 7, '', 9, '', 'asdfadsf', '2023-03-02 14:41:47'),
 (80, 'louie-7-9', 9, '', 7, '', 'adsfasdf', '2023-03-02 15:19:40'),
 (81, 'louie-7-9', 9, '', 7, '', 'adfadsf', '2023-03-02 16:42:11'),
-(82, 'Close Open Store-9-8', 8, '', 9, '', 'asdfa', '2023-03-02 16:43:09');
+(82, 'Close Open Store-9-8', 8, '', 9, '', 'asdfa', '2023-03-02 16:43:09'),
+(83, 'hello world-9-7', 7, '', 9, '', '123asfasdfasf1212213', '2023-03-03 09:52:05'),
+(84, 'hello world-9-7', 7, '', 9, '', 'adfadsf', '2023-03-03 09:52:58'),
+(85, 'louie-7-9', 9, '', 7, '', 'adfsasf', '2023-03-03 09:53:37'),
+(86, 'louie-7-9', 9, '', 7, '', 'afafdasdf123123123', '2023-03-03 09:57:48'),
+(87, 'hello world-9-7', 7, '', 9, '', '123', '2023-03-03 09:57:57'),
+(88, 'Close Open Store-9-8', 8, '', 9, '', '123asfasdfasf1212213', '2023-03-03 09:58:28'),
+(89, 'louie-8-9', 9, '', 8, '', 'yo', '2023-03-03 09:58:40'),
+(90, 'louie-7-9', 9, '', 7, '', '123', '2023-03-03 10:03:40');
 
 -- --------------------------------------------------------
 
@@ -136,7 +144,7 @@ CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `messages` longtext NOT NULL,
-  `chat_id` varchar(11) NOT NULL,
+  `user_id` varchar(11) NOT NULL,
   `time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -144,7 +152,7 @@ CREATE TABLE `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `name`, `messages`, `chat_id`, `time`) VALUES
+INSERT INTO `messages` (`id`, `name`, `messages`, `user_id`, `time`) VALUES
 (26, '', 'fgsdg', '0', '2023-02-18 21:31:56'),
 (27, '', 'adsfadsf', '0', '2023-02-18 21:33:47'),
 (28, '', 'jay', '0', '2023-02-18 21:34:15'),
@@ -184,7 +192,9 @@ INSERT INTO `messages` (`id`, `name`, `messages`, `chat_id`, `time`) VALUES
 (62, 'louie', 'this is some message too', '9-6', '2023-03-02 09:34:56'),
 (63, 'hello world', '123asfasdfasf1212213', '7-6', '2023-03-02 10:34:57'),
 (64, 'hello world', '123asfasdfasf1212213', '7-7', '2023-03-02 10:43:20'),
-(65, 'louie', 'adfad', '9-7', '2023-03-02 10:44:17');
+(65, 'louie', 'adfad', '9-7', '2023-03-02 10:44:17'),
+(66, 'louie', '123', '9', '2023-03-03 10:03:26'),
+(67, 'louie', '123', '9', '2023-03-03 10:03:30');
 
 -- --------------------------------------------------------
 
@@ -240,13 +250,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `groupchat`
 --
 ALTER TABLE `groupchat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `users`
