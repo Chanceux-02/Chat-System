@@ -15,7 +15,7 @@
   //this is for all user chat
   $allUser = $showData->users();
   $allUsers = $showData->users();
-
+//adding
   include 'partials/chat-header.php';
 ?>
 
