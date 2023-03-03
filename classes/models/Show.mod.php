@@ -32,4 +32,13 @@ class Show extends Db{
         return $stmt;
         // print_r($result);
       }
+      public function usersId($id) {
+        $conn = $this->getConnection();
+        // $stmt = $conn->prepare("SELECT * FROM `messages` JOIN `users`  ORDER BY messages.id DESC ");
+        $stmt = $conn->prepare("SELECT `name` FROM users WHERE id = ? ");
+        $stmt->execute([$id]);
+        // $result = $stmt->fetch();
+        return $stmt;
+        // print_r($result);
+      }
 }

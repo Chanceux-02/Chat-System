@@ -13,8 +13,9 @@
 
   $showData = new Show();
   //this is for all user chat
-  $allUser = $showData->users();
-  $allUsers = $showData->users();
+  $allUser = $showData->usersId($id);
+  $user = $allUser->fetch(PDO::FETCH_ASSOC);
+  // print_r($user);
 //adding
   include 'partials/chat-header.php';
 ?>
@@ -23,7 +24,7 @@
 <?php
 
 if(isset($_SESSION["user_email"])){
-    echo "This is a one on one chat " . $_SESSION["user_email"] . "!";
+    echo "This is a one on one chat.  <br> You Are logged in as " . $_SESSION["user_email"] . "!";
 }else{
     echo "logged out";
 }
@@ -33,7 +34,7 @@ if(isset($_SESSION["user_email"])){
       <!-- header -->
     <header class="header">
         <div class="bg-primary p-2 d-flex justify-content-evenly">
-          <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6"> <?= $_SESSION["user_email"] ?></p> </div>
+          <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6"> <?= $user['name'] ?></p> </div>
            <a href="includes/logout.inc.php" class="text-light">Log out</a>
            <a href="index.php" class="text-light">Home</a>
         </div>
