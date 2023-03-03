@@ -34,15 +34,9 @@ if(isset($_SESSION["user_email"])){
           <div class="p-2 d-flex justify-content-center"> <span class="online"></span><p class="text-center text-light fs-6"> <?= $_SESSION["user_email"] ?></p> </div>
            <a href="includes/logout.inc.php" class="text-light">Log out</a>
 
-           <?php           
-                $users2 = $allUsers->fetch(PDO::FETCH_ASSOC);
-
-                // $_SESSION["user_email"] = $users2["name"];
-            ?>
-
             <form action="one-on-one-chat.php?" method="GET">
               <select name="id" id="" placeholder="Select">
-                  <option value="">Select</option>
+                  <option value="">Select user</option>
                   <?php
                   while ($users = $allUser->fetch(PDO::FETCH_ASSOC)) {
                     $users['name'];
@@ -53,7 +47,7 @@ if(isset($_SESSION["user_email"])){
                     <?php } ?>
 
               </select>
-              <button type="submit" >create</button>
+              <button type="submit">chat</button>
             </form>
         </div>
     </header>
@@ -72,24 +66,6 @@ if(isset($_SESSION["user_email"])){
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-
-
-<!-- <div class="chat-container">
-      <div class="chat-header">
-        <h1>Chat Room</h1>
-      </div>
-      <div class="chat-messages" id="result">
-        
-      </div>
-      <div class="chat-input">
-        <form method="POST" action="includes/user.inc.php">
-          <input type="text" name="message" placeholder="Type your message here">
-          <button type="submit" name="submit">Send</button>
-        </form>
-      </div>
-    </div> -->
-
 
 
     <script src="js/main.js"></script>

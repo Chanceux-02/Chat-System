@@ -16,7 +16,7 @@
     while ($other = $allChat->fetch(PDO::FETCH_ASSOC)) {
 
 
-          if($other['chat_id'] == $user_id){
+          if($other['user_id'] == $user_id){
               $userMessages = "
               <div class='d-flex justify-content-end'>
                 <div>
