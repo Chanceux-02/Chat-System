@@ -1,0 +1,21 @@
+create conversation tracker
+
+id
+user_id
+last_read_at
+
+
+the ajax will automatically check if there's new message, if there is new message the jquery will compare the message created_at to last_read_at.
+
+SBS.
+
+make a query to fetch the last_read_at and created_at in ajax to make sure it always updated and compare this two using jquery that if last_read_at is greater than created_at there's no new message else count how many created_at that greater than last_read_at and fetch it. Display the result after the conversation.
+
+if i click/open the conversation it will automaticaly store the information in conversation tracker and the notify icon will be toggle to hidden because the last_read_at is greater than to created_at whick is the conversation time.
+
+UPDATE conversation_user
+SET last_read_at = NOW()
+WHERE conversation_id = <conversation_id>
+  AND user_id = <user_id>;
+
+Like this query we need to always update the data everytime the user open the conversation.
